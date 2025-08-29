@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Professional AI Interview Platform Design System */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Lively and Inviting Theme */
+    --primary: 14 90% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 14 95% 70%;
+
+    --secondary: 180 68% 45%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 25 100% 97%;
+    --muted-foreground: 25 15% 45%;
+
+    --accent: 280 85% 65%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 96% 89%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+
+    --border: 25 50% 92%;
+    --input: 25 50% 92%;
+    --ring: 14 90% 60%;
+
+    --radius: 0.75rem;
+
+    /* Lively and Inviting Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(14 90% 60%) 0%, hsl(280 85% 65%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(180 68% 45%) 0%, hsl(180 68% 35%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(14 90% 60%) 0%, hsl(280 85% 65%) 50%, hsl(14 95% 70%) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+
+    /* Lively Shadows */
+    --shadow-primary: 0 10px 30px -10px hsl(14 90% 60% / 0.3);
+    --shadow-secondary: 0 4px 20px -4px hsl(180 68% 45% / 0.15);
+    --shadow-glow: 0 0 40px hsl(14 95% 70% / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Interview Specific */
+    --camera-border: hsl(14 90% 60%);
+    --gesture-success: hsl(142 76% 36%);
+    --gesture-warning: hsl(38 92% 50%);
+    --gesture-error: hsl(0 84% 60%);
+  }
+
+  .dark {
+    --background: 25 15% 12%;
+    --foreground: 0 0% 98%;
+
+    --card: 25 20% 18%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 25 20% 18%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 14 85% 55%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 14 90% 65%;
+
+    --secondary: 180 60% 40%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 25 20% 18%;
+    --muted-foreground: 25 10% 60%;
+
+    --accent: 280 80% 60%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 25 20% 25%;
+    --input: 25 20% 25%;
+    --ring: 14 85% 55%;
+
+    /* Dark mode lively gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(14 85% 55%) 0%, hsl(280 80% 60%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(180 60% 40%) 0%, hsl(180 60% 30%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(14 85% 55%) 0%, hsl(280 80% 60%) 50%, hsl(14 90% 65%) 100%);
+    --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+
+    --shadow-primary: 0 10px 30px -10px hsl(14 85% 55% / 0.4);
+    --shadow-secondary: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 40px hsl(14 90% 65% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
