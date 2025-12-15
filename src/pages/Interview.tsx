@@ -179,27 +179,32 @@ export const Interview = () => {
     return () => clearInterval(interval);
   }, [isInterviewStarted]);
 
-  const requestPermissions = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ 
-        video: true, 
-        audio: true 
-      });
-      setCameraEnabled(true);
-      setMicEnabled(true);
-      stream.getTracks().forEach(track => track.stop()); // Stop the test stream
+  const loadPermissions = () => {
+  // Get permissions from GrantPermissions page
+    const storedPermissions = localStorage.getItem('interviewPermissions');
+    if (storedPermissions) {
+      const permissions = JSON.parse(storedPermissions);
+      setCameraEnabled(permissions.camera);
+      setMicEnabled(permissions.microphone);
       toast({
-        title: "Permissions Granted",
-        description: "Camera and microphone access enabled.",
+        title: "Permissions Loaded",
+        description: "Camera and microphone access ready for interview.",
       });
-    } catch (error) {
+    } else {
+      // Fallback - redirect back to grant permissions
       toast({
-        title: "Permission Denied",
-        description: "Please allow camera and microphone access to continue.",
+        title: "Permissions Required",
+        description: "Please grant permissions first.",
         variant: "destructive"
       });
+      navigate('/grant-permissions');
     }
   };
+
+  useEffect(() => {
+    loadPermissions();
+  });
+
 
   const startInterview = () => {
     if (!cameraEnabled || !micEnabled) {
@@ -306,7 +311,7 @@ export const Interview = () => {
 
                 {(!cameraEnabled || !micEnabled) && (
                   <Button 
-                    onClick={requestPermissions}
+                    onClick={loadPermissions}
                     className="w-full bg-gradient-primary text-primary-foreground"
                   >
                     Grant Permissions
